@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 700">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  </style>
+  <rect width="960" height="700" fill="#ffffff"/>
+  <text x="480" y="36" text-anchor="middle" font-size="18" font-weight="600" fill="#111827">管理后台 — UI 原型</text>
+  <rect x="40" y="55" width="880" height="620" rx="12" fill="#f9fafb" stroke="#d1d5db" stroke-width="2"/>
+  <rect x="40" y="55" width="880" height="40" rx="12" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+  <circle cx="64" cy="75" r="6" fill="#ef4444"/>
+  <circle cx="84" cy="75" r="6" fill="#eab308"/>
+  <circle cx="104" cy="75" r="6" fill="#22c55e"/>
+  <rect x="40" y="95" width="200" height="580" rx="0" fill="#111827" stroke="none"/>
+  <text x="60" y="130" font-size="15" font-weight="600" fill="#ffffff">管理后台</text>
+  <rect x="40" y="150" width="200" height="40" rx="0" fill="#2563eb"/>
+  <text x="60" y="175" font-size="13" fill="#ffffff">模型管理</text>
+  <rect x="40" y="190" width="200" height="40" rx="0" fill="transparent"/>
+  <text x="60" y="215" font-size="13" fill="#9ca3af">用户管理</text>
+  <rect x="40" y="230" width="200" height="40" rx="0" fill="transparent"/>
+  <text x="60" y="255" font-size="13" fill="#9ca3af">充值审核</text>
+  <rect x="40" y="270" width="200" height="40" rx="0" fill="transparent"/>
+  <text x="60" y="295" font-size="13" fill="#9ca3af">系统设置</text>
+  <rect x="240" y="95" width="680" height="580" rx="0" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="270" y="130" font-size="16" font-weight="600" fill="#111827">模型管理</text>
+  <rect x="820" y="110" width="80" height="32" rx="6" fill="#2563eb"/>
+  <text x="860" y="131" text-anchor="middle" font-size="12" fill="#ffffff">+ 添加</text>
+  <rect x="260" y="155" width="640" height="36" rx="0" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="280" y="178" font-size="12" font-weight="600" fill="#6b7280">名称</text>
+  <text x="420" y="178" font-size="12" font-weight="600" fill="#6b7280">模型 ID</text>
+  <text x="580" y="178" font-size="12" font-weight="600" fill="#6b7280">供应商</text>
+  <text x="680" y="178" font-size="12" font-weight="600" fill="#6b7280">积分/次</text>
+  <text x="770" y="178" font-size="12" font-weight="600" fill="#6b7280">状态</text>
+  <text x="850" y="178" font-size="12" font-weight="600" fill="#6b7280">操作</text>
+  <rect x="260" y="191" width="640" height="44" rx="0" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="280" y="218" font-size="13" fill="#111827">Agnes 2.1 Flash</text>
+  <text x="420" y="218" font-size="13" fill="#6b7280">agnes-image-2.1-flash</text>
+  <text x="580" y="218" font-size="13" fill="#6b7280">Agnes AI</text>
+  <text x="690" y="218" font-size="13" fill="#6b7280">2</text>
+  <rect x="760" y="205" width="40" height="20" rx="10" fill="#dcfce7"/>
+  <text x="780" y="219" text-anchor="middle" font-size="11" fill="#16a34a">启用</text>
+  <text x="840" y="218" font-size="12" fill="#2563eb">编辑</text>
+  <rect x="260" y="235" width="640" height="44" rx="0" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="280" y="262" font-size="13" fill="#111827">Agnes 2.0 Flash</text>
+  <text x="420" y="262" font-size="13" fill="#6b7280">agnes-image-2.0-flash</text>
+  <text x="580" y="262" font-size="13" fill="#6b7280">Agnes AI</text>
+  <text x="690" y="262" font-size="13" fill="#6b7280">2</text>
+  <rect x="760" y="249" width="40" height="20" rx="10" fill="#dcfce7"/>
+  <text x="780" y="263" text-anchor="middle" font-size="11" fill="#16a34a">启用</text>
+  <text x="840" y="262" font-size="12" fill="#2563eb">编辑</text>
+  <rect x="260" y="279" width="640" height="44" rx="0" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="280" y="306" font-size="13" fill="#111827">Sensenova u1-fast</text>
+  <text x="420" y="306" font-size="13" fill="#6b7280">sensenova-u1-fast</text>
+  <text x="580" y="306" font-size="13" fill="#6b7280">Sensenova</text>
+  <text x="690" y="306" font-size="13" fill="#6b7280">3</text>
+  <rect x="760" y="293" width="40" height="20" rx="10" fill="#dcfce7"/>
+  <text x="780" y="307" text-anchor="middle" font-size="11" fill="#16a34a">启用</text>
+  <text x="840" y="306" font-size="12" fill="#2563eb">编辑</text>
+  <text x="270" y="360" font-size="14" font-weight="600" fill="#111827">数据概览</text>
+  <rect x="260" y="375" width="150" height="80" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="335" y="405" text-anchor="middle" font-size="22" font-weight="600" fill="#2563eb">3</text>
+  <text x="335" y="425" text-anchor="middle" font-size="12" fill="#6b7280">模型总数</text>
+  <rect x="430" y="375" width="150" height="80" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1"/>
+  <text x="505" y="405" text-anchor="middle" font-size="22" font-weight="600" fill="#16a34a">128</text>
+  <text x="505" y="425" text-anchor="middle" font-size="12" fill="#6b7280">用户总数</text>
+  <rect x="600" y="375" width="150" height="80" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1"/>
+  <text x="675" y="405" text-anchor="middle" font-size="22" font-weight="600" fill="#9333ea">1,256</text>
+  <text x="675" y="425" text-anchor="middle" font-size="12" fill="#6b7280">生成次数</text>
+  <rect x="770" y="375" width="150" height="80" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1"/>
+  <text x="845" y="405" text-anchor="middle" font-size="22" font-weight="600" fill="#ea580c">5</text>
+  <text x="845" y="425" text-anchor="middle" font-size="12" fill="#6b7280">待审核充值</text>
+  <text x="270" y="490" font-size="14" font-weight="600" fill="#111827">最近活动</text>
+  <rect x="260" y="500" width="640" height="150" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="280" y="530" font-size="12" fill="#6b7280">• user@example.com 生成了 1 张图片 (Agnes 2.1) · 2分钟前</text>
+  <text x="280" y="555" font-size="12" fill="#6b7280">• newuser@test.com 注册了新账号 · 15分钟前</text>
+  <text x="280" y="580" font-size="12" fill="#6b7280">• admin 审批了 admin@co.com 的充值申请 (+500积分) · 1小时前</text>
+  <text x="280" y="605" font-size="12" fill="#6b7280">• user2@demo.com 生成了 3 张图片 (Sensenova) · 2小时前</text>
+  <text x="280" y="630" font-size="12" fill="#6b7280">• user3@mail.com 提交了充值申请 (200积分) · 3小时前</text>
+</svg>

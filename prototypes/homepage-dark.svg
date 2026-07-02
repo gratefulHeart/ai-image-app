@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 900">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  </style>
+  <defs>
+    <linearGradient id="hero-grad-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0a2e;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#1a1145;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#2d1b69;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="dcard1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.25"/>
+    </linearGradient>
+    <linearGradient id="dcard2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.2"/>
+    </linearGradient>
+    <linearGradient id="dcard3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.25"/>
+    </linearGradient>
+    <linearGradient id="dcard4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:0.25"/>
+    </linearGradient>
+    <linearGradient id="dcard5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:0.2"/>
+    </linearGradient>
+    <linearGradient id="dcard6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a18cd1;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#fbc2eb;stop-opacity:0.25"/>
+    </linearGradient>
+    <filter id="glow"><feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#818cf8" flood-opacity="0.25"/></filter>
+  </defs>
+  <rect width="960" height="900" fill="#0a0a1a"/>
+  <rect x="0" y="0" width="960" height="56" fill="#0f0f1f" opacity="0.95"/>
+  <line x1="0" y1="56" x2="960" y2="56" stroke="#1e1e3a" stroke-width="0.5"/>
+  <text x="40" y="36" font-size="17" font-weight="700" fill="#818cf8">✨ AI 生图</text>
+  <text x="540" y="36" font-size="14" fill="#9ca3af">画廊</text>
+  <text x="610" y="36" font-size="14" fill="#9ca3af">模型</text>
+  <text x="680" y="36" font-size="14" fill="#9ca3af">关于</text>
+  <rect x="780" y="14" width="70" height="30" rx="15" fill="transparent" stroke="#4b5563" stroke-width="1"/>
+  <text x="815" y="34" text-anchor="middle" font-size="12" fill="#9ca3af">登录</text>
+  <rect x="860" y="14" width="70" height="30" rx="15" fill="#6366f1" stroke="none"/>
+  <text x="895" y="34" text-anchor="middle" font-size="12" fill="#ffffff">注册</text>
+  <rect x="0" y="56" width="960" height="200" fill="url(#hero-grad-dark)"/>
+  <circle cx="800" cy="120" r="100" fill="#818cf8" opacity="0.06"/>
+  <circle cx="850" cy="180" r="60" fill="#818cf8" opacity="0.04"/>
+  <circle cx="120" cy="220" r="80" fill="#6366f1" opacity="0.04"/>
+  <circle cx="200" cy="100" r="2" fill="#818cf8" opacity="0.5"/>
+  <circle cx="350" cy="180" r="1.5" fill="#a78bfa" opacity="0.4"/>
+  <circle cx="700" cy="90" r="2" fill="#c4b5fd" opacity="0.3"/>
+  <circle cx="600" cy="200" r="1.5" fill="#818cf8" opacity="0.4"/>
+  <text x="480" y="115" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">用 AI 创造无限可能</text>
+  <text x="480" y="148" text-anchor="middle" font-size="15" fill="#a5b4fc">输入文字，让 AI 为你生成精美图片</text>
+  <rect x="380" y="168" width="200" height="44" rx="22" fill="#6366f1" filter="url(#glow)"/>
+  <text x="480" y="196" text-anchor="middle" font-size="15" font-weight="600" fill="#ffffff">开始创作 →</text>
+  <text x="280" y="236" text-anchor="middle" font-size="13" fill="#7c3aed">1,256 张作品</text>
+  <text x="480" y="236" text-anchor="middle" font-size="13" fill="#7c3aed">128 位创作者</text>
+  <text x="680" y="236" text-anchor="middle" font-size="13" fill="#7c3aed">3 个 AI 模型</text>
+  <rect x="40" y="275" width="880" height="40" rx="0" fill="#111127"/>
+  <rect x="60" y="282" width="50" height="26" rx="13" fill="#6366f1"/>
+  <text x="85" y="300" text-anchor="middle" font-size="12" fill="#ffffff">全部</text>
+  <rect x="126" y="282" width="60" height="26" rx="13" fill="#1a1a35" stroke="#2d2d50" stroke-width="1"/>
+  <text x="156" y="300" text-anchor="middle" font-size="12" fill="#9ca3af">风景</text>
+  <rect x="202" y="282" width="60" height="26" rx="13" fill="#1a1a35" stroke="#2d2d50" stroke-width="1"/>
+  <text x="232" y="300" text-anchor="middle" font-size="12" fill="#9ca3af">人物</text>
+  <rect x="278" y="282" width="60" height="26" rx="13" fill="#1a1a35" stroke="#2d2d50" stroke-width="1"/>
+  <text x="308" y="300" text-anchor="middle" font-size="12" fill="#9ca3af">动物</text>
+  <rect x="354" y="282" width="60" height="26" rx="13" fill="#1a1a35" stroke="#2d2d50" stroke-width="1"/>
+  <text x="384" y="300" text-anchor="middle" font-size="12" fill="#9ca3af">建筑</text>
+  <rect x="430" y="282" width="60" height="26" rx="13" fill="#1a1a35" stroke="#2d2d50" stroke-width="1"/>
+  <text x="460" y="300" text-anchor="middle" font-size="12" fill="#9ca3af">动漫</text>
+  <rect x="506" y="282" width="60" height="26" rx="13" fill="#1a1a35" stroke="#2d2d50" stroke-width="1"/>
+  <text x="536" y="300" text-anchor="middle" font-size="12" fill="#9ca3af">科幻</text>
+  <rect x="582" y="282" width="60" height="26" rx="13" fill="#1a1a35" stroke="#2d2d50" stroke-width="1"/>
+  <text x="612" y="300" text-anchor="middle" font-size="12" fill="#9ca3af">油画</text>
+  <rect x="658" y="282" width="60" height="26" rx="13" fill="#1a1a35" stroke="#2d2d50" stroke-width="1"/>
+  <text x="688" y="300" text-anchor="middle" font-size="12" fill="#9ca3af">产品</text>
+  <rect x="40" y="330" width="280" height="200" rx="12" fill="#111127" stroke="#1e1e3a" stroke-width="1"/>
+  <text x="180" y="420" text-anchor="middle" font-size="14" fill="#818cf8">🏔️ 风景</text>
+  <text x="180" y="445" text-anchor="middle" font-size="11" fill="#6b7280">日出时分的浮空城市</text>
+  <rect x="50" y="470" width="50" height="20" rx="10" fill="#1a1a35"/>
+  <text x="75" y="484" text-anchor="middle" font-size="10" fill="#818cf8">Agnes 2.1</text>
+  <rect x="340" y="330" width="280" height="140" rx="12" fill="#111127" stroke="#1e1e3a" stroke-width="1"/>
+  <text x="480" y="395" text-anchor="middle" font-size="14" fill="#f472b6">👤 人物</text>
+  <text x="480" y="420" text-anchor="middle" font-size="11" fill="#6b7280">赛博朋克少女</text>
+  <rect x="640" y="330" width="280" height="170" rx="12" fill="#111127" stroke="#1e1e3a" stroke-width="1"/>
+  <text x="780" y="405" text-anchor="middle" font-size="14" fill="#38bdf8">🌌 科幻</text>
+  <text x="780" y="430" text-anchor="middle" font-size="11" fill="#6b7280">星际飞船穿越虫洞</text>
+  <rect x="40" y="545" width="280" height="170" rx="12" fill="#111127" stroke="#1e1e3a" stroke-width="1"/>
+  <text x="180" y="620" text-anchor="middle" font-size="14" fill="#4ade80">🐾 动物</text>
+  <text x="180" y="645" text-anchor="middle" font-size="11" fill="#6b7280">水彩风格的狐狸</text>
+  <rect x="340" y="485" width="280" height="230" rx="12" fill="#111127" stroke="#1e1e3a" stroke-width="1"/>
+  <text x="480" y="580" text-anchor="middle" font-size="14" fill="#fb7185">🎨 油画</text>
+  <text x="480" y="605" text-anchor="middle" font-size="11" fill="#6b7280">莫奈风格的花园</text>
+  <rect x="640" y="515" width="280" height="140" rx="12" fill="#111127" stroke="#1e1e3a" stroke-width="1"/>
+  <text x="780" y="580" text-anchor="middle" font-size="14" fill="#c084fc">🏗️ 建筑</text>
+  <text x="780" y="605" text-anchor="middle" font-size="11" fill="#6b7280">未来主义摩天大楼</text>
+  <rect x="40" y="730" width="280" height="140" rx="12" fill="#111127" stroke="#1e1e3a" stroke-width="1"/>
+  <text x="180" y="795" text-anchor="middle" font-size="14" fill="#818cf8">🌸 动漫</text>
+  <text x="180" y="820" text-anchor="middle" font-size="11" fill="#6b7280">新海诚风格的天空</text>
+  <rect x="340" y="730" width="280" height="140" rx="12" fill="#111127" stroke="#1e1e3a" stroke-width="1"/>
+  <text x="480" y="795" text-anchor="middle" font-size="14" fill="#38bdf8">📦 产品</text>
+  <text x="480" y="820" text-anchor="middle" font-size="11" fill="#6b7280">极简风格耳机广告</text>
+  <rect x="640" y="670" width="280" height="200" rx="12" fill="#111127" stroke="#1e1e3a" stroke-width="1"/>
+  <text x="780" y="755" text-anchor="middle" font-size="14" fill="#f472b6">🌃 风景</text>
+  <text x="780" y="780" text-anchor="middle" font-size="11" fill="#6b7280">雨夜霓虹街道</text>
+  <rect x="0" y="885" width="960" height="15" fill="#050510"/>
+  <text x="480" y="896" text-anchor="middle" font-size="10" fill="#6366f1">© 2025 AI 生图 · 用 AI 创造无限可能</text>
+</svg>
