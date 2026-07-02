@@ -12,6 +12,37 @@ import { Sparkles, ArrowRight, Image as ImageIcon } from "lucide-react";
 
 const CATEGORIES = ["全部", "风景", "人物", "动物", "建筑", "动漫", "科幻", "油画", "产品"];
 
+// 每个分类对应的假数据 prompt 模板
+const DEMO_PROMPTS: Record<string, string[]> = {
+  "风景": ["壮丽的山脉景观", "宁静的海边日落", "迷雾森林风景", "极光夜空景观", "辽阔草原风景", "瀑布山水风景", "雪山风景", "秋日森林风景", "海岸线风景", "湖泊倒影风景"],
+  "人物": ["优雅的少女肖像", "帅气的少年", "老人肖像人物", "舞者女孩", "都市女性人物", "儿童人物写真", "情侣人物", "瑜伽人物", "街头人物", "职业人物肖像"],
+  "动物": ["慵懒的猫", "奔跑的狗", "展翅的鸟", "森林里的狐狸", "草原狮子", "海中鲸鱼", "树上松鼠", "花园蝴蝶", "宠物狗", "野生动物"],
+  "建筑": ["现代城市建筑", "古老城堡建筑", "东京塔建筑", "摩天大楼建筑", "故宫建筑", "教堂建筑", "桥梁建筑", "图书馆建筑", "剧院建筑", "现代别墅建筑"],
+  "动漫": ["动漫风格少女", "机甲战士动漫", "奇幻世界动漫", "动漫风景", "魔法少女动漫", "热血动漫", "治愈系动漫", "校园动漫", "幻想动漫", "蒸汽朋克动漫"],
+  "科幻": ["赛博朋克城市科幻", "太空站科幻", "未来都市科幻", "外星世界科幻", "机器人科幻", "星际飞船科幻", "虚拟现实科幻", "时间机器科幻", "反重力城市科幻", "全息影像科幻"],
+  "油画": ["油画风景艺术", "抽象油画", "古典人物油画", "印象派油画", "静物油画", "风景油画写生", "花卉油画", "肖像油画", "海景油画", "田园油画"],
+  "产品": ["智能手机产品", "高端耳机产品", "笔记本电脑", "时尚手表产品", "运动鞋产品", "相机产品", "蓝牙音箱产品", "智能手表产品", "机械键盘产品", "电竞鼠标产品"],
+};
+
+const DEMO_GENERATIONS: Generation[] = Array.from({ length: 100 }, (_, i) => {
+  const cats = CATEGORIES.slice(1); // 去掉 "全部"
+  const cat = cats[i % cats.length];
+  const prompts = DEMO_PROMPTS[cat];
+  const prompt = `${prompts[i % prompts.length]} #demo${Math.floor(i / cats.length) + 1}`;
+  return {
+    id: `demo-${i + 1}`,
+    user_id: "demo",
+    model_id: "demo",
+    model_name: "Agnes 2.1 Flash",
+    prompt,
+    image_url: `https://picsum.photos/seed/demo${1001 + i}/600/600`,
+    width: 1024,
+    height: 1024,
+    credits_used: 1,
+    created_at: new Date(2025, 0, i + 1).toISOString(),
+  };
+});
+
 export default function HomePage() {
   const [generations, setGenerations] = useState<Generation[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("全部");
@@ -41,9 +72,10 @@ export default function HomePage() {
         .select("*", { count: "exact", head: true })
         .eq("is_active", true);
 
+      // 不足 100 时显示 100，真实数据超过 100 后显示真实值
       setStats({
-        totalImages: imageCount || 0,
-        totalUsers: userCount || 0,
+        totalImages: Math.max(100, imageCount || 0),
+        totalUsers: Math.max(100, userCount || 0),
         totalModels: modelCount || 0,
       });
     };
@@ -51,10 +83,12 @@ export default function HomePage() {
     fetchData();
   }, [supabase]);
 
+  // 真实数据在前，假数据在后
+  const allGenerations = [...generations, ...DEMO_GENERATIONS];
+
   const filteredGenerations = selectedCategory === "全部"
-    ? generations
-    : generations.filter((g) => {
-        // Simple keyword matching for demo
+    ? allGenerations
+    : allGenerations.filter((g) => {
         const prompt = g.prompt.toLowerCase();
         const categoryKeywords: Record<string, string[]> = {
           "风景": ["landscape", "mountain", "sea", "sunset", "sunrise", "nature", "sky", "风景", "山", "海"],
@@ -148,9 +182,10 @@ export default function HomePage() {
           </div>
         ) : (
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-            {filteredGenerations.map((gen) => (
-              <Link key={gen.id} href={`/gallery/${gen.id}`}>
-                <Card className="break-inside-avoid overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group">
+            {filteredGenerations.map((gen) => {
+              const isDemo = gen.id.startsWith("demo-");
+              const card = (
+                <Card className={`break-inside-avoid overflow-hidden transition-shadow cursor-pointer group ${isDemo ? "" : "hover:shadow-lg"}`}>
                   <CardContent className="p-0">
                     <div className="relative aspect-square">
                       <img
@@ -174,8 +209,13 @@ export default function HomePage() {
                     </div>
                   </CardContent>
                 </Card>
-              </Link>
-            ))}
+              );
+              return isDemo ? (
+                <div key={gen.id} className="break-inside-avoid">{card}</div>
+              ) : (
+                <Link key={gen.id} href={`/gallery/${gen.id}`}>{card}</Link>
+              );
+            })}
           </div>
         )}
       </main>
