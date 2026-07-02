@@ -61,6 +61,22 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // 兜底拦截：访问 /generate 时，非管理员且未审批通过则退回登录页
+  if (user && request.nextUrl.pathname.startsWith('/generate')) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('status, is_admin')
+      .eq('user_id', user.id)
+      .single();
+
+    if (profile && !profile.is_admin && profile.status !== 'approved') {
+      const url = request.nextUrl.clone();
+      url.pathname = '/login';
+      url.searchParams.set('message', 'pending');
+      return NextResponse.redirect(url);
+    }
+  }
+
   return supabaseResponse;
 }
 

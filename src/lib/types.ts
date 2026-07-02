@@ -2,6 +2,7 @@ export interface Profile {
   user_id: string;
   credits: number;
   is_admin: boolean;
+  status: 'pending' | 'approved' | 'rejected';
   created_at: string;
   email?: string;
 }

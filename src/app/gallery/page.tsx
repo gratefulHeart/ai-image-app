@@ -16,9 +16,20 @@ export default function GalleryPage() {
 
   useEffect(() => {
     const fetchGenerations = async () => {
-      const { data, error } = await supabase
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        setGenerations([]);
+        setLoading(false);
+        return;
+      }
+
+      const { data } = await supabase
         .from("generations")
         .select("*")
+        .eq("user_id", user.id)
         .order("created_at", { ascending: false });
 
       if (data) setGenerations(data);
@@ -34,9 +45,9 @@ export default function GalleryPage() {
 
       <main className="flex-1 container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold">作品画廊</h1>
+          <h1 className="text-3xl font-bold">我的作品</h1>
           <p className="text-muted-foreground mt-2">
-            浏览所有 AI 生成的精美作品
+            浏览你生成的精美作品
           </p>
         </div>
 

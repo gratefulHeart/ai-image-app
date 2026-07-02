@@ -59,16 +59,16 @@ export default function RegisterPage() {
             <CardTitle className="text-2xl font-bold">
               <span className="text-primary">✨</span> 注册成功
             </CardTitle>
-            <CardDescription>请检查你的邮箱</CardDescription>
+            <CardDescription>等待管理员审批</CardDescription>
           </CardHeader>
           <CardContent className="text-center">
             <p className="text-muted-foreground mb-4">
-              我们已向 <strong>{email}</strong> 发送了验证邮件。
+              账号 <strong>{email}</strong> 已提交。
               <br />
-              请点击邮件中的链接完成注册。
+              需管理员审批通过后才能登录使用。
             </p>
             <p className="text-sm text-primary">
-              注册即送 100 积分，开始你的创作之旅！
+              审批通过后即可用赠送的 100 积分开始创作！
             </p>
           </CardContent>
           <CardFooter>

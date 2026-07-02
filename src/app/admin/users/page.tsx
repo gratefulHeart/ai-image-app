@@ -63,6 +63,17 @@ export default function AdminUsersPage() {
     fetchUsers();
   };
 
+  const handleUpdateStatus = async (
+    user: ProfileWithEmail,
+    status: "approved" | "rejected"
+  ) => {
+    await supabase
+      .from("profiles")
+      .update({ status })
+      .eq("user_id", user.user_id);
+    fetchUsers();
+  };
+
   const filteredUsers = users.filter(
     (u) =>
       u.user_id.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -96,6 +107,7 @@ export default function AdminUsersPage() {
                   <th className="text-left py-3 px-4 font-medium text-muted-foreground">用户</th>
                   <th className="text-left py-3 px-4 font-medium text-muted-foreground">积分</th>
                   <th className="text-left py-3 px-4 font-medium text-muted-foreground">角色</th>
+                  <th className="text-left py-3 px-4 font-medium text-muted-foreground">审批状态</th>
                   <th className="text-left py-3 px-4 font-medium text-muted-foreground">注册时间</th>
                   <th className="text-left py-3 px-4 font-medium text-muted-foreground">操作</th>
                 </tr>
@@ -126,17 +138,50 @@ export default function AdminUsersPage() {
                         <Badge variant="outline">用户</Badge>
                       )}
                     </td>
+                    <td className="py-3 px-4">
+                      {user.is_admin ? (
+                        <span className="text-sm text-muted-foreground">-</span>
+                      ) : user.status === "approved" ? (
+                        <Badge className="bg-green-600 hover:bg-green-600">已通过</Badge>
+                      ) : user.status === "rejected" ? (
+                        <Badge variant="destructive">已拒绝</Badge>
+                      ) : (
+                        <Badge variant="secondary">待审批</Badge>
+                      )}
+                    </td>
                     <td className="py-3 px-4 text-sm text-muted-foreground">
                       {new Date(user.created_at).toLocaleDateString("zh-CN")}
                     </td>
                     <td className="py-3 px-4">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => openCreditDialog(user)}
-                      >
-                        调整积分
-                      </Button>
+                      <div className="flex items-center gap-1">
+                        {!user.is_admin && user.status !== "approved" && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="text-green-600"
+                            onClick={() => handleUpdateStatus(user, "approved")}
+                          >
+                            通过
+                          </Button>
+                        )}
+                        {!user.is_admin && user.status !== "rejected" && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="text-destructive"
+                            onClick={() => handleUpdateStatus(user, "rejected")}
+                          >
+                            拒绝
+                          </Button>
+                        )}
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => openCreditDialog(user)}
+                        >
+                          调整积分
+                        </Button>
+                      </div>
                     </td>
                   </tr>
                 ))}

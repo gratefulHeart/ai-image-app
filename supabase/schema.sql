@@ -6,6 +6,7 @@ CREATE TABLE profiles (
   user_id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
   credits INTEGER NOT NULL DEFAULT 100,
   is_admin BOOLEAN NOT NULL DEFAULT false,
+  status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
@@ -157,8 +158,8 @@ CREATE POLICY "Admins can update all recharges" ON credit_recharges
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS trigger AS $$
 BEGIN
-  INSERT INTO public.profiles (user_id, credits, is_admin)
-  VALUES (new.id, 100, false);
+  INSERT INTO public.profiles (user_id, credits, is_admin, status)
+  VALUES (new.id, 100, false, 'pending');
   RETURN new;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;

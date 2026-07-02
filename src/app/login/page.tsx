@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, Suspense } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,12 +11,15 @@ import Link from "next/link";
 import { Loader2 } from "lucide-react";
 
 function LoginForm() {
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const [error, setError] = useState(
+    searchParams.get("message") === "pending"
+      ? "账号正在等待管理员审批，通过后即可登录"
+      : ""
+  );
   const redirect = searchParams.get("redirect") || "/generate";
   const supabase = createClient();
 
@@ -25,7 +28,7 @@ function LoginForm() {
     setLoading(true);
     setError("");
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
@@ -33,10 +36,29 @@ function LoginForm() {
     if (error) {
       setError(error.message);
       setLoading(false);
-    } else {
-      router.push(redirect);
-      router.refresh();
+      return;
     }
+
+    // 检查账号审批状态：未审批(且非管理员)不允许进入
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("status, is_admin")
+      .eq("user_id", data.user.id)
+      .single();
+
+    if (profile && !profile.is_admin && profile.status !== "approved") {
+      await supabase.auth.signOut();
+      setError(
+        profile.status === "rejected"
+          ? "账号审批未通过，请联系管理员"
+          : "账号正在等待管理员审批，通过后即可登录"
+      );
+      setLoading(false);
+      return;
+    }
+
+    // 硬跳转：确保携带刚写入的登录 cookie，避免首次软导航时会话未同步导致的卡顿
+    window.location.assign(redirect);
   };
 
   return (
